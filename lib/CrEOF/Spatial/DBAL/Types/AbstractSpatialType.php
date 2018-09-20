@@ -40,6 +40,7 @@ use Doctrine\DBAL\Types\Type;
 abstract class AbstractSpatialType extends Type
 {
     const PLATFORM_MYSQL      = 'MySql';
+    const PLATFORM_MSSQL      = 'MsSql';
     const PLATFORM_POSTGRESQL = 'PostgreSql';
 
     /**

@@ -21,17 +21,43 @@
  * SOFTWARE.
  */
 
-namespace CrEOF\Spatial\DBAL\Types\Geography;
+namespace CrEOF\Spatial\DBAL\Platform;
 
-use CrEOF\Spatial\DBAL\Types\GeographyType;
+use CrEOF\Spatial\DBAL\Types\AbstractSpatialType;
+use CrEOF\Spatial\PHP\Types\Geography\GeographyInterface;
 
 /**
- * Doctrine LINESTRING type
+ * MsSql spatial platform
  *
  * @author  Derek J. Lambert <dlambert@dereklambert.com>
  * @license http://dlambert.mit-license.org MIT
  */
-class LineStringType extends GeographyType
+class MsSql extends AbstractPlatform
 {
+    /**
+     * Get an array of database types that map to this Doctrine type.
+     *
+     * @param AbstractSpatialType $type
+     *
+     * @return string[]
+     */
+    public function getMappedDatabaseTypes(AbstractSpatialType $type)
+    {
+        return [];
+    }
 
+    public function convertToDatabaseValueSQL(AbstractSpatialType $type, $sqlExpr)
+    {
+        throw new \Exception('Not implemented for MsSql platform!');
+    }
+
+    public function convertToPHPValueSQL(AbstractSpatialType $type, $sqlExpr)
+    {
+        throw new \Exception('Not implemented for MsSql platform!');
+    }
+
+    public function getSQLDeclaration(array $fieldDeclaration)
+    {
+        throw new \Exception('Not implemented for MsSql platform!');
+    }
 }
